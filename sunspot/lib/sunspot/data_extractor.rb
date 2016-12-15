@@ -18,7 +18,8 @@ module Sunspot
       end
 
       def value_for(object)
-        Filter.new( object.send(@attribute_name) ).value
+        object.send(@attribute_name)
+        #Filter.new( object.send(@attribute_name) ).value
       end
     end
 
@@ -34,7 +35,8 @@ module Sunspot
       end
 
       def value_for(object)
-        Filter.new( Util.instance_eval_or_call(object, &@block) ).value
+        object.send(@attribute_name)
+        #Filter.new( Util.instance_eval_or_call(object, &@block) ).value
       end
     end
 
@@ -47,7 +49,8 @@ module Sunspot
       end
 
       def value_for(object)
-        Filter.new(@value).value
+        @value
+        #Filter.new(@value).value
       end
     end
 
