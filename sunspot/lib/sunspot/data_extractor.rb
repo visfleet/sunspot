@@ -35,7 +35,7 @@ module Sunspot
       end
 
       def value_for(object)
-        object.send(@attribute_name)
+        Util.instance_eval_or_call(object, &@block)
         #Filter.new( Util.instance_eval_or_call(object, &@block) ).value
       end
     end
