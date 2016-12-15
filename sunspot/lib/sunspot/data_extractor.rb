@@ -66,6 +66,7 @@ module Sunspot
       def strip_control_characters(value)
         return value unless value.is_a? String
         value.gsub!(/[[:cntrl:]]/, ' ')
+        value
       end
     end
   end
